@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import './App.css'
+import InputField from './components/InputField'
 
-const App = () => {
+const App:React.FC = () => {
 
   return (
     <div className='App'>
       <span className='heading'>Testify</span>
+      <InputField />
    </div>
   )
 }
