@@ -45,7 +45,8 @@ const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
 
     return (
         <Draggable draggableId={todo.id.toString()} index={index}>
-
+            {
+                () => (
         <form className='todos__single' onSubmit={(e) =>handleEdit(e, todo.id)}>
             {
                 edit ? (
@@ -80,6 +81,8 @@ const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
                 </span>
             </div>
         </form>
+                )
+            }
         </Draggable>
     )
 }
