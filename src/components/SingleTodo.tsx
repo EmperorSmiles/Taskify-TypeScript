@@ -2,9 +2,11 @@ import React, { useEffect, useRef, useState } from 'react'
 import { Todo } from '../modal'
 import { AiFillEdit, AiFillDelete } from "react-icons/ai";
 import { MdDone } from "react-icons/md";
+import { Draggable } from 'react-beautiful-dnd';
 
 
 type Props = {
+    index: number,
     todo: Todo,
     todos: Todo[],
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
@@ -12,7 +14,7 @@ type Props = {
 
 
 
-const SingleTodo = ({ todo, todos, setTodos }: Props) => {
+const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [editTodo, setEditTodo] = useState<string>(todo.todo);
 
@@ -42,6 +44,8 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
     }, [edit]);
 
     return (
+        <Draggable draggableId={todo.id.toString()} index={index}>
+
         <form className='todos__single' onSubmit={(e) =>handleEdit(e, todo.id)}>
             {
                 edit ? (
@@ -76,6 +80,7 @@ const SingleTodo = ({ todo, todos, setTodos }: Props) => {
                 </span>
             </div>
         </form>
+        </Draggable>
     )
 }
 
