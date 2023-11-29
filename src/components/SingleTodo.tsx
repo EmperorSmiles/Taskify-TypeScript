@@ -6,10 +6,10 @@ import { Draggable } from 'react-beautiful-dnd';
 
 
 type Props = {
-    index: number,
-    todo: Todo,
-    todos: Todo[],
-    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+    index: number;
+    todo: Todo;
+    todos: Todo[];
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>; 
 }
 
 
@@ -46,8 +46,13 @@ const SingleTodo = ({ index, todo, todos, setTodos }: Props) => {
     return (
         <Draggable draggableId={todo.id.toString()} index={index}>
             {
-                () => (
-        <form className='todos__single' onSubmit={(e) =>handleEdit(e, todo.id)}>
+                (provided) => (
+                <form className='todos__single'
+                        onSubmit={(e) => handleEdit(e, todo.id)}
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                        >
             {
                 edit ? (
                     <input
