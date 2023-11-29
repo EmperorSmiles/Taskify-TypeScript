@@ -6,9 +6,9 @@ import { Droppable } from 'react-beautiful-dnd';
 
 interface Props{
     todos: Todo[];
-    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>; 
     completedTodos: Todo[];
-    setCompletedTodos:React.Dispatch<React.SetStateAction<Todo[]>>
+    setCompletedTodos: React.Dispatch<React.SetStateAction<Todo[]>>;
 }
 
 const ToDoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setCompletedTodos }: Props) => {
@@ -17,14 +17,11 @@ const ToDoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setComplet
         
         <div className="container">
             <Droppable droppableId='TodosList'>
-                {
-                    (provided) => (
+                {(provided) => (
                         <div className="todos"
                             ref={provided.innerRef}
                             {...provided.droppableProps}>
-                <span className="todos__heading">
-                    Active Task
-                </span>
+                <span className="todos__heading">Active Task</span>
                 {
                     todos.map((todo, index) => (
                         <SingleTodo
@@ -33,9 +30,9 @@ const ToDoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setComplet
                             todos={todos}
                             key={todo.id}
                             setTodos={setTodos} />
-                    ))
-                }
-            </div>
+                    ))}
+                            {provided.placeholder}
+        </div>
                     )
                 }   
             </Droppable>
@@ -45,9 +42,7 @@ const ToDoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setComplet
                     (provided) => (
                         <div className="todos remove" ref={provided.innerRef}
                         {...provided.droppableProps}>
-            <span className="todos__heading">
-                    Completed Task
-                </span>
+            <span className="todos__heading">Completed Task</span>
                 {
                     completedTodos.map((todo, index) => (
                         <SingleTodo
@@ -56,8 +51,8 @@ const ToDoList: React.FC<Props> = ({ todos, setTodos, completedTodos, setComplet
                             todos={completedTodos}
                             key={todo.id}
                             setTodos={setCompletedTodos} />
-                    ))
-                }
+                    ))}
+                            {provided.placeholder}
                 </div>
                     )
                 }
