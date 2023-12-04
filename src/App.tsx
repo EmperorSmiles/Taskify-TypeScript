@@ -52,7 +52,7 @@ const App:React.FC = () => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <div className='App'>
-        <span className='heading'>Taskify</span>
+        <span className='heading'>Taskify by Smiles</span>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <ToDoList todos={todos} setTodos={setTodos}
         completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
