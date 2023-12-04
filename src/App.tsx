@@ -56,7 +56,7 @@ const App:React.FC = () => {
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <ToDoList todos={todos} setTodos={setTodos}
           completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
-        <footer className='footer'>Built with Typescript by <a href="https://github.com/EmperorSmiles" target="_blank">Favour Smiles Adejoh</a></footer>
+        <footer className='footer'>Built with Typescript by <a href="https://github.com/EmperorSmiles" target="_blank">Favour Smiles Adejoh </a></footer>
     </div>
     </DragDropContext>
   )
