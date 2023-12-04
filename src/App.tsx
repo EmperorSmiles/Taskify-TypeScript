@@ -55,7 +55,8 @@ const App:React.FC = () => {
         <span className='heading'>Taskify by Smiles</span>
         <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
         <ToDoList todos={todos} setTodos={setTodos}
-        completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
+          completedTodos={completedTodos} setCompletedTodos={setCompletedTodos} />
+        <footer className='footer'>Built with Typescript by <link href="" />Favour Smiles Adejoh</footer>
     </div>
     </DragDropContext>
   )
